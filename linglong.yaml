@@ -1,0 +1,26 @@
+package:
+  id: libxcursor
+  name: libxcursor
+  version: 1.1.15
+  kind: lib
+  description: |
+    libxcursor.
+
+base:
+  id: org.deepin.base
+  version: 20.5.0
+
+source:
+  kind: git
+  url: https://github.com/deepin-community/libxcursor.git
+  version: master
+  commit: 851121e0661ee7ef55fc4ee06cba518ef8e485d1
+  patch:
+  - autogen.sh-install
+variables:
+  extra_args: |
+    --with-cursorpath=~/.icons:\$${datadir}/icons:/usr/share/pixmaps \
+    --disable-silent-rules
+
+build:
+  kind: autotools
